@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './pages/Login';
@@ -5,6 +6,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import ChatPage from './pages/ChatPage';
 
+// Helper component for private routes
 const Protected = ({ children }) => {
     const { token } = useAuth();
     return token ? children : <Navigate to="/login" />;
@@ -26,4 +28,5 @@ function App() {
     );
 }
 
+// THIS IS THE LINE YOU ARE LIKELY MISSING:
 export default App;
